@@ -1,0 +1,64 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Scroll Animations (Fade In)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const animateElements = document.querySelectorAll('.feature-card, .cred-item, .section-header, .ecosystem-content');
+    animateElements.forEach(el => {
+        el.classList.add('fade-up-init'); // Add base class for opacity 0
+        observer.observe(el);
+    });
+
+
+    // 2. Hero Parallax Effect
+    const hero = document.querySelector('.hero');
+    const systemContainer = document.querySelector('.system-container');
+    const metricNodes = document.querySelectorAll('.metric-node');
+
+    if (hero && systemContainer) {
+        hero.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20; // -10 to 10
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+            // Move core opposite to mouse
+            systemContainer.style.transform = `translate(${-x}px, ${-y}px)`;
+
+            // Move metrics slightly differently for depth
+            metricNodes.forEach((node, index) => {
+                const factor = (index + 1) * 2;
+                node.style.transform = `translate(${x * factor * 0.5}px, ${y * factor * 0.5}px)`;
+            });
+        });
+
+        // Reset on mouse leave
+        hero.addEventListener('mouseleave', () => {
+            systemContainer.style.transform = 'translate(0,0)';
+            metricNodes.forEach(node => {
+                node.style.transform = 'translate(0,0)';
+            });
+        });
+    }
+
+
+    // 3. Ticker Duplication for Infinite Scroll
+    const stripTrack = document.querySelector('.strip-track');
+    if (stripTrack) {
+        const content = stripTrack.innerHTML;
+        // Duplicate content 4 times to ensure no gaps on wide screens
+        stripTrack.innerHTML = content + content + content + content;
+    }
+
+});

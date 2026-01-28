@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOG-X | HAZARD WARNING SYSTEM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="fog-container">
+        <div class="fog-layer f1"></div>
+        <div class="fog-layer f2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">FOG-X <span class="status-badge">SYSTEM ACTIVE</span></div>
+        <div class="nav-links">
+            <a href="#specs">SPECS</a>
+            <a href="#impact">IMPACT</a>
+            <a href="#deploy" class="cta-link">DEPLOY</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="caution-tape">
+                <span>CAUTION // LOW VISIBILITY</span>
+                <span>CAUTION // LOW VISIBILITY</span>
+                <span>CAUTION // LOW VISIBILITY</span>
+                <span>CAUTION // LOW VISIBILITY</span>
+            </div>
+            <h1>VISIBILITY<br>RESTORED</h1>
+            <p class="mission">
+                Autonomous roadside safety infrastructure designed for zero-visibility conditions.
+                <br>Detects. Alerts. Protects.
+            </p>
+            <div class="hero-metrics">
+                <div class="metric">
+                    <span class="label">DETECTION RANGE</span>
+                    <span class="value">500<small>m</small></span>
+                </div>
+                <div class="metric">
+                    <span class="label">RESPONSE TIME</span>
+                    <span class="value">0.05<small>s</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="assets/system_core.png" alt="Fog Warning Device" class="main-device">
+            <div class="scan-line"></div>
+        </div>
+    </header>
+
+    <!-- Specs Section -->
+    <section id="specs" class="specs">
+        <div class="section-title">
+            <h2>TECHNICAL SPECIFICATIONS</h2>
+            <div class="hz-line"></div>
+        </div>
+
+        <div class="spec-grid">
+            <div class="spec-card">
+                <h3>// SENSOR ARRAY</h3>
+                <p>Multi-spectral LiDAR with thermal imaging integration for particulate penetration.</p>
+            </div>
+            <div class="spec-card">
+                <h3>// RUGGEDIZED</h3>
+                <p>IP68 rated chassis. Operates in -40°C to +85°C environments. Impact resistant.</p>
+            </div>
+            <div class="spec-card">
+                <h3>// MESH LINK</h3>
+                <p>Decentralized communication between alerting towers. No central failure point.</p>
+            </div>
+            <div class="spec-card">
+                <h3>// POWER</h3>
+                <p>Solar-assisted battery banks with 14-day autonomy in total darkness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact">
+        <div class="impact-content">
+            <h2>IMPACT DATA</h2>
+            <div class="stat-row">
+                <div class="stat">
+                    <span class="num">85%</span>
+                    <span class="desc">REDUCTION IN MULTI-CAR PILEUPS</span>
+                </div>
+                <div class="stat">
+                    <span class="num">24/7</span>
+                    <span class="desc">AUTONOMOUS OPERATION</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="f-col">
+                <h4>FOG-X SYSTEMS</h4>
+                <p>Industrial Safety Division</p>
+            </div>
+            <div class="f-col">
+                <p>All Systems Operational.</p>
+                <p>&copy; 2026 FOG-X.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

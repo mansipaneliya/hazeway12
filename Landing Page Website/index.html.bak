@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL | Intelligent Hazard Response Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">SENTINEL <span class="accent-dot"></span></div>
+        <div class="nav-links">
+            <a href="#system">System</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#network">Network</a>
+            <div class="status-indicator">
+                <span class="status-light"></span> SYSTEM ONLINE
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="system">
+        <div class="hero-bg-layer">
+            <img src="assets/environment.png" alt="Environment Background" class="bg-img">
+            <div class="overlay-gradient"></div>
+        </div>
+
+        <div class="system-container">
+            <!-- Radial Metrics -->
+            <div class="radial-ring outer-ring"></div>
+            <div class="radial-ring inner-ring"></div>
+
+            <div class="metric-node pos-top-left">
+                <span class="label">LATENCY</span>
+                <span class="value">Active</span>
+            </div>
+            <div class="metric-node pos-top-right">
+                <span class="label">RANGE</span>
+                <span class="value">2.4km</span>
+            </div>
+            <div class="metric-node pos-bottom-left">
+                <span class="label">STATUS</span>
+                <span class="value">Optimal</span>
+            </div>
+            <div class="metric-node pos-bottom-right">
+                <span class="label">NODES</span>
+                <span class="value">142 Active</span>
+            </div>
+
+            <!-- Central Visual -->
+            <div class="core-visual">
+                <div class="glow-effect"></div>
+                <img src="assets/system_core.png" alt="Sentinel Core Device" class="device-img">
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>INTELLIGENT <span class="text-accent">HAZARD RESPONSE</span></h1>
+            <p class="hero-desc">An adaptive ecosystem designed for clarity in the chaos. <br>System-level thinking for
+                next-generation road safety.</p>
+        </div>
+    </section>
+
+    <!-- Feature Strip -->
+    <div class="feature-strip">
+        <div class="strip-track">
+            <span class="strip-item">AUTONOMOUS DETECTION</span>
+            <span class="separator">//</span>
+            <span class="strip-item">REAL-TIME TELEMETRY</span>
+            <span class="separator">//</span>
+            <span class="strip-item">ADAPTIVE SIGNALLING</span>
+            <span class="separator">//</span>
+            <span class="strip-item">MESH NETWORK PROTOCOL</span>
+            <span class="separator">//</span>
+            <span class="strip-item">AUTONOMOUS DETECTION</span>
+            <span class="separator">//</span>
+            <span class="strip-item">REAL-TIME TELEMETRY</span>
+            <span class="separator">//</span>
+            <span class="strip-item">ADAPTIVE SIGNALLING</span>
+            <span class="separator">//</span>
+            <span class="strip-item">MESH NETWORK PROTOCOL</span>
+        </div>
+    </div>
+
+    <!-- Core Features -->
+    <section class="core-features" id="capabilities">
+        <div class="section-header">
+            <h2>CORE CAPABILITIES</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="feature-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Distributed Mesh</h3>
+                <p>Decentralized node logic ensures rapid response without single points of failure.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h3>Predictive Warning</h3>
+                <p>AI-driven analysis of environmental data to forecast visibility drops before they occur.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3>Modular Architecture</h3>
+                <p>Hot-swappable sensor arrays adapt to varying geographical conditions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility System -->
+    <section class="credibility">
+        <div class="cred-item fade-up">
+            <span class="big-num">0.02<small>s</small></span>
+            <span class="label">Response Latency</span>
+        </div>
+        <div class="cred-item fade-up delay-1">
+            <span class="big-num">50<small>+</small></span>
+            <span class="label">Pilot Deployments</span>
+        </div>
+        <div class="cred-item fade-up delay-2">
+            <span class="big-num">100<small>%</small></span>
+            <span class="label">Uptime Record</span>
+        </div>
+    </section>
+
+    <!-- Ecosystem / Orbital -->
+    <section class="ecosystem" id="network">
+        <div class="ecosystem-content">
+            <h2>THE NETWORK</h2>
+            <p>Integrated collaboration across hardware, software, and human factors.</p>
+        </div>
+
+        <div class="orbital-system">
+            <div class="orbit-path path-1"></div>
+            <div class="orbit-path path-2"></div>
+            <div class="orbit-path path-3"></div>
+
+            <div class="center-mass">
+                <img src="assets/device_detail.png" alt="Core" class="detail-img">
+            </div>
+
+            <div class="planet p1">ANALYTICS</div>
+            <div class="planet p2">HARDWARE</div>
+            <div class="planet p3">CLOUD</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 SENTINEL SYSTEMS. DESIGNED FOR CLARITY.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

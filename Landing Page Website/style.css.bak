@@ -1,0 +1,617 @@
+/* Global Variables */
+:root {
+    --bg-color: #050505;
+    --card-bg: #0F0F0F;
+    --accent-color: #9B2222;
+    --accent-glow: rgba(155, 34, 34, 0.4);
+    --text-main: #E0E0E0;
+    --text-muted: #888888;
+    --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
+    --easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), transparent);
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.accent-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    border: 1px solid rgba(155, 34, 34, 0.3);
+    padding: 4px 12px;
+    border-radius: 99px;
+}
+
+.status-light {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    filter: blur(5px) grayscale(0.5);
+}
+
+.overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 80%);
+}
+
+.system-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.core-visual {
+    position: relative;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+.device-img {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8));
+    border-radius: 20px;
+    /* Assuming rounded device */
+}
+
+.glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    filter: blur(80px);
+    opacity: 0.3;
+    z-index: -1;
+    animation: pulse-glow 4s infinite alternate;
+}
+
+.radial-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.outer-ring {
+    width: 550px;
+    height: 550px;
+}
+
+.inner-ring {
+    width: 350px;
+    height: 350px;
+}
+
+.metric-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align text */
+    text-align: center;
+}
+
+/* Positioning metrics roughly */
+.pos-top-left {
+    top: 15%;
+    left: 15%;
+}
+
+.pos-top-right {
+    top: 15%;
+    right: 15%;
+}
+
+.pos-bottom-left {
+    bottom: 20%;
+    left: 15%;
+}
+
+.pos-bottom-right {
+    bottom: 20%;
+    right: 15%;
+}
+
+.metric-node .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.metric-node .value {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Connector lines could be added with ::before pseudo elements */
+
+.hero-content {
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Feature Strip */
+.feature-strip {
+    background: #0A0A0A;
+    border-top: 1px solid #1A1A1A;
+    border-bottom: 1px solid #1A1A1A;
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 10;
+}
+
+.strip-track {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+.strip-item {
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.separator {
+    color: var(--accent-color);
+    margin: 0 2rem;
+    opacity: 0.5;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Ideally need duplicate content for seamless loop, simpler here */
+}
+
+/* Core Features */
+.core-features {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header .line {
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+    margin-top: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border: 1px solid #1A1A1A;
+    border-radius: 8px;
+    transition: transform 0.4s var(--easing), box-shadow 0.4s var(--easing), border-color 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: #333;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--easing);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Credibility */
+.credibility {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    background: radial-gradient(circle at center, #0F0F0F 0%, #050505 70%);
+}
+
+.cred-item {
+    text-align: center;
+}
+
+.big-num {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.big-num small {
+    font-size: 0.5em;
+    /* relative to big-num */
+    color: var(--accent-color);
+    vertical-align: super;
+}
+
+.cred-item .label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Ecosystem */
+.ecosystem {
+    padding: 6rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ecosystem-content {
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 2;
+}
+
+.orbital-system {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orbit-path {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.path-1 {
+    width: 300px;
+    height: 300px;
+}
+
+.path-2 {
+    width: 450px;
+    height: 450px;
+}
+
+.path-3 {
+    width: 600px;
+    height: 600px;
+}
+
+.center-mass {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: #000;
+}
+
+.detail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.planet {
+    position: absolute;
+    background: #111;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    border: 1px solid #333;
+    white-space: nowrap;
+    animation: orbit var(--duration) linear infinite;
+    /* This actually needs offset-path which is complex, using simple rotation for now */
+}
+
+/* Simplified Orbit Sim: Rotate parent container or use trig.
+   A better approach for simple CSS orbit is to have a container rotate, and element counter-rotate.
+*/
+.planet {
+    top: 50%;
+    left: 50%;
+    /* offset logic simulated below via transform origin if I knew the exact width, but let's try standard layout */
+    /* HACK: Just position them manually for static or simple layout, or use JS for positions. 
+       Let's stick to a static distinct layout or simple float for now to avoid complexity without preview. */
+    animation: none;
+    transform: translate(-50%, -50%);
+}
+
+/* Manual Placement for visual stability */
+.p1 {
+    transform: translate(-150px, 0);
+}
+
+/* On path 1 radius 150 */
+.p2 {
+    transform: translate(150px, 150px);
+}
+
+/* Approx path 2 */
+.p3 {
+    transform: translate(0, -300px);
+}
+
+/* Path 3 radius 300 */
+
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #111;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* Animation Utilities */
+.fade-up-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .system-container {
+        width: 100%;
+        height: 400px;
+    }
+
+    .outer-ring,
+    .inner-ring {
+        display: none;
+        /* Simplify for mobile */
+    }
+
+    .metric-node {
+        display: none;
+        /* Hide complex metrics on tiny screens */
+    }
+}

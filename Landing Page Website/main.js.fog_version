@@ -1,0 +1,76 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Scroll Interaction Observer
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.spec-card, .stat, .hero-content');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+    });
+
+    // Add 'in-view' class style dynamically if not in CSS, 
+    // or rely on the transition set above.
+    // Ideally this belongs in CSS, but for safety ensuring it triggers:
+    document.addEventListener('transitionend', (e) => {
+        if (e.target.classList.contains('in-view')) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+        }
+    });
+
+    // We can also use a mutation observer or just a timeout loop to check for the class
+    // But let's just make the observer callback do the work directly:
+    const directObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    animateElements.forEach(el => directObserver.observe(el));
+
+
+    // 2. Glitch Text Effect for Title
+    const title = document.querySelector('h1');
+    if (title) {
+        const originalText = title.innerHTML;
+        // Simple random glitch interval
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                title.style.textShadow = '2px 0 red, -2px 0 blue';
+                setTimeout(() => {
+                    title.style.textShadow = 'none';
+                }, 100);
+            }
+        }, 2000);
+    }
+
+    // 3. Fog Parallax (Subtle)
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const fogLayers = document.querySelectorAll('.fog-layer');
+
+        fogLayers.forEach((layer, index) => {
+            const speed = (index + 1) * 0.2;
+            layer.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+});
